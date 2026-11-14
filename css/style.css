@@ -29,30 +29,13 @@ a:hover { color: var(--blue-dark); text-decoration: underline; }
 }
 .header-inner {
   width: min(1040px, calc(100% - 40px));
-  min-height: 66px;
+  min-height: 52px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 24px;
 }
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: #303940;
-  font-size: 27px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -.9px;
-}
-.brand-icon {
-  display: block;
-  width: 37px;
-  height: 37px;
-  flex: 0 0 37px;
-}
-.brand:hover { color: #303940; text-decoration: none; }
 .site-nav { display: flex; align-items: center; gap: 23px; }
 .site-nav a {
   padding: 22px 0 20px;
@@ -69,27 +52,48 @@ a:hover { color: var(--blue-dark); text-decoration: underline; }
 main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 .intro {
   max-width: 760px;
-  padding: 43px 0 30px;
+  margin: 0 auto;
+  padding: 45px 0 34px;
+  text-align: center;
 }
-.section-kicker {
-  margin: 0 0 5px;
-  color: var(--blue);
-  font-size: 12px;
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 0 auto 13px;
+  color: #303940;
+  font-size: 39px;
+  line-height: 1;
   font-weight: 700;
+  letter-spacing: -1.4px;
+}
+.hero-brand .brand-icon {
+  display: block;
+  width: 49px;
+  height: 49px;
+  flex: 0 0 49px;
+}
+.brand-description {
+  max-width: 670px;
+  margin: 0 auto 27px;
+  color: #65717a;
+  font-size: 15px;
+  line-height: 1.65;
 }
 h1 {
   margin: 0 0 10px;
   color: #303940;
-  font-size: 29px;
-  line-height: 1.2;
+  font-size: 25px;
+  line-height: 1.25;
   font-weight: 400;
-  letter-spacing: -.5px;
+  letter-spacing: -.4px;
 }
 .intro > p:last-child {
   max-width: 690px;
-  margin: 0;
+  margin: 0 auto;
   color: #65717a;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .workspace {
@@ -259,11 +263,14 @@ button:disabled { opacity: .5; cursor: default; }
 }
 @media (max-width: 560px) {
   .header-inner, main { width: calc(100% - 28px); }
-  .header-inner { align-items: flex-start; flex-direction: column; gap: 0; padding-top: 13px; }
-  .site-nav { width: 100%; gap: 18px; overflow-x: auto; }
+  .header-inner { justify-content: center; min-height: 48px; }
+  .site-nav { width: 100%; justify-content: center; gap: 18px; overflow-x: auto; }
   .site-nav a { padding: 10px 0 9px; white-space: nowrap; }
   .intro { padding: 31px 0 24px; }
-  h1 { font-size: 25px; }
+  .hero-brand { font-size: 32px; gap: 9px; }
+  .hero-brand .brand-icon { width: 42px; height: 42px; flex-basis: 42px; }
+  .brand-description { font-size: 14px; }
+  h1 { font-size: 23px; }
   .field-grid, #extension-groups { grid-template-columns: 1fr; }
   .workspace { padding-bottom: 32px; }
 }
