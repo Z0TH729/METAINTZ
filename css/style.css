@@ -389,6 +389,7 @@ button:hover { border-color: #888888; background: #303030; }
 button.primary { color: #171717; background: #e5e5e5; border-color: #e5e5e5; }
 button.primary:hover { background: #ffffff; }
 #query-output { color: var(--text); background: var(--output); border-color: var(--border); }
+#status { color: var(--heading); }
 .note, .site-footer, .creator-status { color: var(--soft-text); }
 .note strong { color: var(--heading); }
 .site-footer { border-top-color: var(--border); }
