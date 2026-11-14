@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="METAINTZ - inspeção local de metadados de arquivos">
+  <title>METAINTZ | Metadata Inspector</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/exifreader@4.25.0/dist/exif-reader.js"></script>
+  <script src="./frontend/js/app.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>METAINTZ</h1>
+    <p>Public File Metadata Intelligence Tool</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="inspector-heading">
+      <h2 id="inspector-heading">File Inspector</h2>
+      <p>Selecione um arquivo para examinar os metadados disponíveis no próprio navegador.</p>
+      <p>Use somente arquivos próprios ou que você tenha autorização para analisar.</p>
+      <form id="inspector-form">
+        <label for="file-input">Arquivo</label>
+        <input id="file-input" name="file" type="file" required
+          accept=".pdf,.docx,.xlsx,.pptx,.odt,.txt,.png,.jpg,.jpeg,.tif,.tiff,.webp">
+        <button id="inspect-button" type="submit">Inspecionar arquivo</button>
+      </form>
+      <p id="status" role="status" aria-live="polite">Aguardando arquivo.</p>
+    </section>
+
+    <section aria-labelledby="results-heading">
+      <h2 id="results-heading">Resultados</h2>
+      <div id="results">
+        <p>Nenhum arquivo analisado.</p>
+      </div>
+      <button id="export-button" type="button" disabled>Exportar JSON</button>
+    </section>
+  </main>
+</body>
+</html>
