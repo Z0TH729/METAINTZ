@@ -1,18 +1,86 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="METAINTZ - busca avançada de arquivos públicos na web."><title>METAINTZ | Public File Search</title>
-<script src="./js/extensions.js" defer></script><script src="./js/operators.js" defer></script><script src="./js/search.js" defer></script><script src="./js/app.js" defer></script></head>
-<body><header><h1>METAINTZ</h1><p>PUBLIC FILE SEARCH ENGINE</p><p>Busca avançada de arquivos públicos usando operadores de pesquisa.</p></header>
-<main><form id="search-form">
-<fieldset><legend>Pesquisa</legend>
-<label for="terms">Termos de pesquisa</label><input id="terms" type="text" placeholder="Ex.: segurança da informação">
-<label for="site">Domínio ou site</label><input id="site" type="text" placeholder="Ex.: gov.br">
-<label for="title">Palavras no título (intitle)</label><input id="title" type="text" placeholder="Ex.: relatório">
-<label for="url">Palavras na URL (inurl)</label><input id="url" type="text" placeholder="Ex.: documentos">
-<label for="inside">Palavras no conteúdo (intext)</label><input id="inside" type="text" placeholder="Ex.: acesso público">
-<label for="exclude">Excluir termos</label><input id="exclude" type="text" placeholder="Ex.: rascunho privado">
-</fieldset>
-<fieldset><legend>Extensões de arquivo</legend><p>Selecione um ou mais formatos para aplicar o operador filetype:.</p><div id="extension-groups"></div></fieldset>
-<fieldset><legend>Operadores adicionais</legend><label><input id="exact" type="checkbox"> Expressão exata</label><label><input id="inurl-any" type="checkbox"> Exigir termo na URL</label></fieldset>
-<button type="submit">Pesquisar no Google</button> <button id="preview-button" type="button">Gerar consulta</button></form>
-<section><h2>Consulta gerada</h2><output id="query-output">Sua consulta aparecerá aqui.</output><p><button id="copy-button" type="button" disabled>Copiar consulta</button></p><p id="status" role="status" aria-live="polite"></p></section></main>
-<footer><p>O METAINTZ monta consultas e redireciona ao Google. Os resultados dependem do índice e dos recursos de pesquisa do Google.</p><p>Use para localizar conteúdo público. Respeite privacidade, direitos autorais e regras de acesso dos sites.</p></footer></body></html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d12">
+  <meta name="description" content="METAINTZ - mecanismo de busca avançada de arquivos públicos na web.">
+  <title>METAINTZ | Public File Search</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/extensions.js" defer></script>
+  <script src="./js/operators.js" defer></script>
+  <script src="./js/search.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">M.</div>
+        <div><p class="brand-name">METAINTZ</p><span class="brand-sub">PUBLIC FILE SEARCH ENGINE</span></div>
+      </div>
+      <div class="header-meta">SEARCH MODULE / ONLINE</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <span class="eyebrow">ADVANCED SEARCH INTERFACE</span>
+      <h1>Encontre arquivos.<br>Pesquise com precisão.</h1>
+      <p>Construa consultas avançadas para localizar arquivos públicos indexados pelo Google usando extensões e operadores de pesquisa.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="panel">
+        <div class="panel-heading"><h2>PARÂMETROS DE BUSCA</h2><span class="panel-index">01 / QUERY BUILDER</span></div>
+        <form id="search-form">
+          <fieldset>
+            <legend>CRITÉRIOS DE PESQUISA</legend>
+            <div class="field-grid">
+              <div class="field"><label for="terms">Termos de pesquisa</label><input id="terms" type="text" placeholder="Ex.: segurança da informação"></div>
+              <div class="field"><label for="site">Domínio ou site</label><input id="site" type="text" placeholder="Ex.: gov.br"></div>
+              <div class="field"><label for="title">Palavras no título · intitle:</label><input id="title" type="text" placeholder="Ex.: relatório"></div>
+              <div class="field"><label for="url">Palavras na URL · inurl:</label><input id="url" type="text" placeholder="Ex.: documentos"></div>
+              <div class="field"><label for="inside">Palavras no conteúdo · intext:</label><input id="inside" type="text" placeholder="Ex.: acesso público"></div>
+              <div class="field"><label for="exclude">Excluir termos</label><input id="exclude" type="text" placeholder="Ex.: rascunho privado"></div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>FORMATOS DE ARQUIVO</legend>
+            <p class="hint">Selecione os formatos que deseja localizar. Mais de um formato gera uma condição OR.</p>
+            <div id="extension-groups"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>OPÇÕES AVANÇADAS</legend>
+            <div class="options-row">
+              <label class="option-label"><input id="exact" type="checkbox"> Expressão exata</label>
+              <label class="option-label"><input id="inurl-any" type="checkbox"> Exigir termo na URL</label>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button class="primary" type="submit">Pesquisar no Google ↗</button>
+            <button id="preview-button" type="button">Gerar consulta</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="panel result-panel">
+        <div class="panel-heading"><h2>CONSULTA GERADA</h2><span class="panel-index">02 / OUTPUT</span></div>
+        <p class="result-label">Google search operators</p>
+        <output id="query-output">Sua consulta aparecerá aqui.</output>
+        <div class="result-actions"><button id="copy-button" type="button" disabled>Copiar consulta</button></div>
+        <p id="status" role="status" aria-live="polite"></p>
+        <div class="tip"><strong>Nota:</strong> o METAINTZ monta a consulta e encaminha você ao Google. A disponibilidade dos resultados depende da indexação e dos operadores aceitos pelo buscador.</div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>METAINTZ · Ferramenta de construção de consultas para arquivos públicos.</p>
+    <p>Respeite a privacidade, os direitos autorais e as regras de acesso dos sites pesquisados.</p>
+  </footer>
+</body>
+</html>
