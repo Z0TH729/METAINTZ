@@ -336,3 +336,77 @@ button:disabled { opacity: .5; cursor: default; }
   .creator-avatar { width: 62px; height: 62px; flex-basis: 62px; }
   .creator-heading { align-items: flex-start; }
 }
+
+
+/* Alternância de tema: preserva o layout original do METAINTZ. */
+:root {
+  color-scheme: light;
+  --page: #ffffff;
+  --surface: #fafafa;
+  --field: #ffffff;
+  --output: #f8f9fa;
+  --text: #242424;
+  --heading: #202020;
+  --soft-text: #555555;
+  --border: #d0d0d0;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #171717;
+  --surface: #202020;
+  --field: #222222;
+  --output: #202020;
+  --text: #e5e5e5;
+  --heading: #f0f0f0;
+  --soft-text: #b5b5b5;
+  --border: #444444;
+}
+html, body {
+  background: var(--page);
+  color: var(--text);
+  transition: background-color .22s ease, color .22s ease;
+}
+.site-header { background: var(--page); border-bottom-color: var(--border); }
+.site-nav a { color: var(--soft-text); }
+.site-nav a:hover, .site-nav a.active { color: var(--heading); border-bottom-color: var(--soft-text); }
+.hero-brand, h1, h2, legend, #extension-groups legend { color: var(--heading); }
+.brand-description, .intro > p:last-child, .field label, code,
+#extension-groups label, .option-label { color: var(--soft-text); }
+input[type="text"] {
+  color: var(--text);
+  background: var(--field);
+  border-color: var(--border);
+}
+input[type="text"]::placeholder { color: #888888; }
+input[type="text"]:focus { border-color: #999999; box-shadow: 0 0 0 2px #88888820; }
+#extension-groups fieldset { border-bottom-color: var(--border); }
+button {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
+}
+button:hover { border-color: #888888; background: #303030; }
+button.primary { color: #171717; background: #e5e5e5; border-color: #e5e5e5; }
+button.primary:hover { background: #ffffff; }
+#query-output { color: var(--text); background: var(--output); border-color: var(--border); }
+.note, .site-footer, .creator-status { color: var(--soft-text); }
+.note strong { color: var(--heading); }
+.site-footer { border-top-color: var(--border); }
+.creator-card { background: var(--surface); border-color: var(--border); }
+.creator-info > strong, .creator-stats strong { color: var(--heading); }
+.creator-info p, .creator-stats { color: var(--soft-text); }
+.intro-art, .creator-avatar { border-color: var(--border); }
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 30px;
+  margin-left: 2px;
+  padding: 5px 9px;
+  font-size: 12px;
+}
+.theme-toggle svg { width: 15px; height: 15px; flex: 0 0 15px; }
+@media (prefers-reduced-motion: reduce) {
+  html, body { transition: none; }
+}
