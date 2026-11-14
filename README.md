@@ -1,48 +1,31 @@
 # METAINTZ
 
-**Public File Metadata Intelligence Tool**
+**Advanced Public File Search**
 
-METAINTZ is a static browser-based tool for inspecting metadata in files the operator owns or is explicitly authorized to assess.
+METAINTZ é um gerador de consultas avançadas para localizar arquivos públicos indexados pelo Google. Usa operadores como `filetype:`, `site:`, `intitle:`, `inurl:`, `intext:`, exclusões e combinações com `OR`.
 
-## Current MVP
+## Como funciona
+1. Informe termos relacionados ao conteúdo.
+2. Selecione uma ou mais extensões.
+3. Opcionalmente, filtre por domínio, título, URL ou conteúdo.
+4. Gere a consulta e abra a pesquisa no Google.
 
-- Local file selection. Files are processed in the browser and are not uploaded by METAINTZ.
-- PDF metadata through PDF.js.
-- Image dimensions and available EXIF fields through ExifReader.
-- Core properties from DOCX, XLSX, PPTX, and ODT archives through JSZip.
-- Basic file information for TXT.
-- JSON report export.
+Exemplo:
+```text
+site:gov.br "segurança da informação" (filetype:pdf OR filetype:docx OR filetype:pptx)
+```
 
-## Technology
+## Catálogo
+Documentos, planilhas, dados, apresentações, imagens, áudio, vídeo, arquivos compactados, pacotes, formatos web e desenvolvimento.
 
-- HTML
-- JavaScript
-- SVG (for future interface assets)
-- GitHub Pages
-- PDF.js, JSZip, and ExifReader loaded from public CDNs
+## Tecnologia
+HTML, JavaScript puro, Google Search por URL e GitHub Pages. Não utiliza API de busca, backend, Python ou Node.js. O METAINTZ constrói a consulta e encaminha o usuário ao Google; os resultados dependem do índice e dos operadores aceitos pelo buscador.
 
-No Python backend, Node.js runtime, or server-side application is required.
+## Executar localmente
+Abra `index.html` no navegador.
 
-## Limitations
+## Uso responsável
+Use para localizar conteúdo público. Respeite privacidade, direitos autorais, termos dos sites e controles de acesso. Não utilize a ferramenta para coletar documentos privados de terceiros.
 
-- Metadata availability depends on the file format and what the document actually contains.
-- Some files may have missing, stripped, or altered metadata.
-- Password-protected, corrupted, or unsupported files may fail to parse.
-- This MVP inspects files selected by the user. It does not crawl domains or bypass browser cross-origin restrictions.
-- Third-party CDN scripts require an internet connection.
-
-## Run locally
-
-Open `frontend/index.html` in a browser, or serve the repository with any static HTTP server.
-
-## GitHub Pages
-
-Publish from the `main` branch using `/(root)` as the publishing source. The root `index.html` loads the application script from `frontend/js/app.js`.
-
-## Safety
-
-Use METAINTZ only with files you own or have permission to assess. Do not use it to collect private documents or personal information about third parties.
-
-## License
-
+## Licença
 MIT
