@@ -117,5 +117,41 @@
     <p>METAINTZ é uma ferramenta independente de construção de consultas.</p>
     <p>Respeite a privacidade, os direitos autorais e as regras de acesso dos sites pesquisados.</p>
   </footer>
+  <script>
+    (() => {
+      const fields = {
+        avatar: document.getElementById("creator-avatar"),
+        name: document.getElementById("creator-name"),
+        login: document.getElementById("creator-login"),
+        bio: document.getElementById("creator-bio"),
+        repos: document.getElementById("creator-repos"),
+        followers: document.getElementById("creator-followers"),
+        following: document.getElementById("creator-following"),
+        status: document.getElementById("creator-status")
+      };
+
+      fetch("https://api.github.com/users/Z0TH729", {
+        headers: { Accept: "application/vnd.github+json" }
+      })
+        .then(response => {
+          if (!response.ok) throw new Error("GitHub API indisponível");
+          return response.json();
+        })
+        .then(profile => {
+          fields.avatar.src = profile.avatar_url;
+          fields.name.textContent = profile.name || profile.login;
+          fields.login.textContent = "@" + profile.login;
+          fields.bio.textContent = profile.bio || "Criador do METAINTZ.";
+          fields.repos.textContent = profile.public_repos;
+          fields.followers.textContent = profile.followers;
+          fields.following.textContent = profile.following;
+          fields.status.textContent = "Informações públicas carregadas do GitHub.";
+        })
+        .catch(() => {
+          fields.bio.textContent = "Acesse o GitHub para consultar as informações do perfil.";
+          fields.status.textContent = "Não foi possível carregar a prévia agora.";
+        });
+    })();
+  </script>
 </body>
 </html>
