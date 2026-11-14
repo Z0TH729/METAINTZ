@@ -2,40 +2,39 @@
 
 **Public File Metadata Intelligence Tool**
 
-METAINTZ is an educational file-metadata inspection project. Its initial scope is to inspect files that the operator owns or is explicitly authorized to assess, and to support audits of documents intentionally made public.
+METAINTZ is a static web application for inspecting metadata in files that the operator owns or is explicitly authorized to assess.
 
-## Project status
+## Technology
 
-Early development. The current version contains the initial application skeleton and API health endpoint. Metadata extraction and domain discovery will be added in later stages.
+- HTML
+- JavaScript
+- SVG
+- GitHub Pages for static hosting
+
+No Python backend, Node.js runtime, or server-side application is required.
 
 ## Planned capabilities
 
-- Inspect metadata from user-supplied, authorized file sources.
-- Support PDF, Office Open XML, text, and common image formats.
-- Report extracted metadata in structured form.
-- Provide an authorized-domain discovery workflow with explicit scope controls.
+- Inspect files selected by the user in the browser.
+- Extract supported document and image metadata using JavaScript libraries where necessary.
+- Present structured inspection results.
+- Support authorized-domain workflows only where browser security and the target server's CORS policy permit access.
+
+## Browser limitations
+
+A static website cannot freely read arbitrary files from other websites. Cross-origin requests are controlled by the browser's CORS policy. The initial inspector will therefore prioritize local files selected by the user. Any future remote URL feature must explain these limitations and validate inputs.
 
 ## Safety boundaries
 
-- Only inspect files you own or have permission to assess.
-- Do not use this project to collect private documents or personal information about third parties.
-- Domain discovery must be limited to domains for which the operator has authorization.
-- Future URL fetching must enforce HTTPS where appropriate, block private and loopback network destinations, validate redirects and file types, and apply strict download and timeout limits.
+Use METAINTZ only with files you own or have permission to assess. Do not use it to collect private documents or personal information about third parties.
 
-## Development
+## Run locally
 
-Requirements: Python 3.11+
+Open `frontend/index.html` in a browser, or serve the repository with any static HTTP server.
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn backend.main:app --reload
-```
+## GitHub Pages
 
-Open `http://127.0.0.1:8000/api/health` to verify the API.
-
-The frontend is plain HTML and JavaScript for now. No CSS framework or visual styling is included.
+The site can be published from the repository's `main` branch, using the `/frontend` folder as the publishing source if configured as the Pages source.
 
 ## License
 
