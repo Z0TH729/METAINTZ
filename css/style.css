@@ -16,7 +16,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background: #fff;
-  color: #30343a;
+  color: #242424;
   font-size: 14px;
   line-height: 1.55;
 }
@@ -96,7 +96,7 @@ main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 }
 h1 {
   margin: 0 0 10px;
-  color: #303940;
+  color: #202020;
   font-size: 25px;
   line-height: 1.25;
   font-weight: 400;
@@ -105,7 +105,7 @@ h1 {
 .intro > p:last-child {
   max-width: 690px;
   margin: 0 auto;
-  color: #65717a;
+  color: #666666;
   font-size: 14px;
 }
 
@@ -144,9 +144,9 @@ legend {
   gap: 15px 18px;
 }
 .field { display: grid; gap: 5px; }
-.field label { color: #505b63; font-size: 13px; }
+.field label { color: #555555; font-size: 13px; }
 code {
-  color: #59656d;
+  color: #555555;
   font-family: Consolas, "Liberation Mono", monospace;
   font-size: 12px;
 }
@@ -154,10 +154,10 @@ input[type="text"] {
   width: 100%;
   min-height: 36px;
   padding: 7px 9px;
-  border: 1px solid #cbd2d7;
+  border: 1px solid #cccccc;
   border-radius: 2px;
   outline: none;
-  color: #30343a;
+  color: #242424;
   background: #fff;
   font: inherit;
   font-size: 13px;
@@ -166,7 +166,7 @@ input[type="text"]:focus {
   border-color: #777777;
   box-shadow: 0 0 0 2px #00000012;
 }
-input[type="text"]::placeholder { color: #9aa2a8; }
+input[type="text"]::placeholder { color: #999999; }
 
 .hint {
   margin: -3px 0 12px;
@@ -181,11 +181,11 @@ input[type="text"]::placeholder { color: #9aa2a8; }
 #extension-groups fieldset {
   margin: 0;
   padding: 0 0 9px;
-  border-bottom: 1px solid #e6e9eb;
+  border-bottom: 1px solid #e2e2e2;
 }
 #extension-groups legend {
   margin-bottom: 6px;
-  color: #424c53;
+  color: #444444;
   font-size: 13px;
 }
 #extension-groups p {
@@ -198,7 +198,7 @@ input[type="text"]::placeholder { color: #9aa2a8; }
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: #59636b;
+  color: #555555;
   font-size: 12px;
   cursor: pointer;
 }
@@ -214,9 +214,9 @@ input[type="checkbox"] {
 button {
   min-height: 35px;
   padding: 7px 13px;
-  border: 1px solid #c5cdd2;
+  border: 1px solid #c8c8c8;
   border-radius: 2px;
-  color: #46515a;
+  color: #444444;
   background: #f7f8f9;
   font: inherit;
   font-size: 13px;
@@ -243,7 +243,7 @@ button:disabled { opacity: .5; cursor: default; }
   overflow-wrap: anywhere;
   border: 1px solid var(--border);
   border-radius: 2px;
-  color: #3d474e;
+  color: #333333;
   background: #f8f9fa;
   font: 12px/1.6 Consolas, "Liberation Mono", monospace;
 }
@@ -253,14 +253,14 @@ button:disabled { opacity: .5; cursor: default; }
   margin: 25px 0 0;
   padding-top: 13px;
   border-top: 1px solid var(--border);
-  color: #707a81;
+  color: #707070;
   font-size: 12px;
 }
-.note strong { color: #505b63; }
+.note strong { color: #555555; }
 
 .site-footer {
   border-top: 1px solid var(--border);
-  color: #78828a;
+  color: #777777;
   font-size: 12px;
 }
 .site-footer p {
