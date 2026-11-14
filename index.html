@@ -20,6 +20,10 @@
         <a class="active" href="./">Início</a>
         <a href="https://github.com/Z0TH729/METAINTZ" target="_blank" rel="noreferrer">Código-fonte</a>
         <a href="https://www.google.com/advanced_search" target="_blank" rel="noreferrer">Pesquisa avançada</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo noturno" aria-pressed="false">
+          <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.5 8.5 0 1 0 12 12Z"/></svg>
+          <span id="theme-label">Modo noturno</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -153,5 +157,43 @@
         });
     })();
   </script>
+
+  <script>
+    (() => {
+      const button = document.getElementById("theme-toggle");
+      const label = document.getElementById("theme-label");
+      const icon = document.getElementById("theme-icon");
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (!button || !label || !icon) return;
+
+      const moon = '<path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.5 8.5 0 1 0 12 12Z"/>';
+      const sun = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>';
+
+      let savedTheme = "light";
+      try {
+        savedTheme = localStorage.getItem("metaintz-theme") === "dark" ? "dark" : "light";
+      } catch (_) {}
+
+      function applyTheme(theme, save = false) {
+        const dark = theme === "dark";
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+        label.textContent = dark ? "Modo claro" : "Modo noturno";
+        button.setAttribute("aria-label", dark ? "Ativar modo claro" : "Ativar modo noturno");
+        button.setAttribute("aria-pressed", String(dark));
+        icon.innerHTML = dark ? sun : moon;
+        if (metaTheme) metaTheme.setAttribute("content", dark ? "#171717" : "#171717");
+        if (save) {
+          try { localStorage.setItem("metaintz-theme", dark ? "dark" : "light"); } catch (_) {}
+        }
+      }
+
+      applyTheme(savedTheme);
+      button.addEventListener("click", () => {
+        const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(next, true);
+      });
+    })();
+  </script>
+
 </body>
 </html>
