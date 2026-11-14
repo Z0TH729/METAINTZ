@@ -37,7 +37,7 @@ Open `frontend/index.html` in a browser, or serve the repository with any static
 
 ## GitHub Pages
 
-Publish from the `main` branch using `/frontend` as the publishing source.
+Publish from the `main` branch using `/(root)` as the publishing source. The root `index.html` loads the application script from `frontend/js/app.js`.
 
 ## Safety
 
