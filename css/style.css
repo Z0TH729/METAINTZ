@@ -1,5 +1,5 @@
 :root {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Noto Sans", "Liberation Sans", Arial, sans-serif;
   color: #30343a;
   background: #fff;
   font-synthesis: none;
@@ -37,12 +37,22 @@ a:hover { color: var(--blue-dark); text-decoration: underline; }
   gap: 24px;
 }
 .brand {
-  color: #333b42;
-  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #303940;
+  font-size: 27px;
+  line-height: 1;
   font-weight: 700;
-  letter-spacing: -.7px;
+  letter-spacing: -.9px;
 }
-.brand:hover { color: #333b42; text-decoration: none; }
+.brand-icon {
+  display: block;
+  width: 37px;
+  height: 37px;
+  flex: 0 0 37px;
+}
+.brand:hover { color: #303940; text-decoration: none; }
 .site-nav { display: flex; align-items: center; gap: 23px; }
 .site-nav a {
   padding: 22px 0 20px;
