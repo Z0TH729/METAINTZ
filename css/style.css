@@ -52,7 +52,7 @@ a:hover { color: var(--ink); text-decoration: underline; }
 main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 .intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
+  grid-template-columns: minmax(0, 1fr) 120px;
   align-items: center;
   gap: 34px;
   max-width: 860px;
@@ -62,7 +62,7 @@ main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 .intro-copy { min-width: 0; text-align: center; }
 .intro-art {
   display: block;
-  width: 190px;
+  width: 120px;
   aspect-ratio: 1;
   object-fit: cover;
   border: 1px solid var(--border);
@@ -280,7 +280,7 @@ button:disabled { opacity: .5; cursor: default; }
   .site-nav { width: 100%; justify-content: center; gap: 18px; overflow-x: auto; }
   .site-nav a { padding: 10px 0 9px; white-space: nowrap; }
   .intro { grid-template-columns: 1fr; gap: 18px; padding: 31px 0 24px; }
-  .intro-art { width: min(150px, 45vw); margin: 0 auto; }
+  .intro-art { width: min(100px, 32vw); margin: 0 auto; }
   .hero-brand { font-size: 32px; gap: 9px; }
   .hero-brand .brand-icon { width: 42px; height: 42px; flex-basis: 42px; }
   .brand-description { font-size: 14px; }
