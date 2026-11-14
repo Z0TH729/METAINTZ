@@ -181,7 +181,7 @@
         button.setAttribute("aria-label", dark ? "Ativar modo claro" : "Ativar modo noturno");
         button.setAttribute("aria-pressed", String(dark));
         icon.innerHTML = dark ? sun : moon;
-        if (metaTheme) metaTheme.setAttribute("content", dark ? "#171717" : "#171717");
+        if (metaTheme) metaTheme.setAttribute("content", dark ? "#171717" : "#ffffff");
         if (save) {
           try { localStorage.setItem("metaintz-theme", dark ? "dark" : "light"); } catch (_) {}
         }
