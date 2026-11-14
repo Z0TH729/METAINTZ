@@ -2,31 +2,34 @@
 
 **Public File Metadata Intelligence Tool**
 
-METAINTZ is a static web application for inspecting metadata in files that the operator owns or is explicitly authorized to assess.
+METAINTZ is a static browser-based tool for inspecting metadata in files the operator owns or is explicitly authorized to assess.
+
+## Current MVP
+
+- Local file selection. Files are processed in the browser and are not uploaded by METAINTZ.
+- PDF metadata through PDF.js.
+- Image dimensions and available EXIF fields through ExifReader.
+- Core properties from DOCX, XLSX, PPTX, and ODT archives through JSZip.
+- Basic file information for TXT.
+- JSON report export.
 
 ## Technology
 
 - HTML
 - JavaScript
-- SVG
-- GitHub Pages for static hosting
+- SVG (for future interface assets)
+- GitHub Pages
+- PDF.js, JSZip, and ExifReader loaded from public CDNs
 
 No Python backend, Node.js runtime, or server-side application is required.
 
-## Planned capabilities
+## Limitations
 
-- Inspect files selected by the user in the browser.
-- Extract supported document and image metadata using JavaScript libraries where necessary.
-- Present structured inspection results.
-- Support authorized-domain workflows only where browser security and the target server's CORS policy permit access.
-
-## Browser limitations
-
-A static website cannot freely read arbitrary files from other websites. Cross-origin requests are controlled by the browser's CORS policy. The initial inspector will therefore prioritize local files selected by the user. Any future remote URL feature must explain these limitations and validate inputs.
-
-## Safety boundaries
-
-Use METAINTZ only with files you own or have permission to assess. Do not use it to collect private documents or personal information about third parties.
+- Metadata availability depends on the file format and what the document actually contains.
+- Some files may have missing, stripped, or altered metadata.
+- Password-protected, corrupted, or unsupported files may fail to parse.
+- This MVP inspects files selected by the user. It does not crawl domains or bypass browser cross-origin restrictions.
+- Third-party CDN scripts require an internet connection.
 
 ## Run locally
 
@@ -34,7 +37,11 @@ Open `frontend/index.html` in a browser, or serve the repository with any static
 
 ## GitHub Pages
 
-The site can be published from the repository's `main` branch, using the `/frontend` folder as the publishing source if configured as the Pages source.
+Publish from the `main` branch using `/frontend` as the publishing source.
+
+## Safety
+
+Use METAINTZ only with files you own or have permission to assess. Do not use it to collect private documents or personal information about third parties.
 
 ## License
 
