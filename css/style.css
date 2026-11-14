@@ -1,13 +1,13 @@
 :root {
   font-family: "Noto Sans", "Liberation Sans", Arial, sans-serif;
-  color: #30343a;
-  background: #fff;
+  color: #292929;
+  background: #fdfdfd;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --blue: #2b78a8;
-  --blue-dark: #225f86;
-  --border: #d7dce0;
-  --muted: #69737c;
+  --blue: #333333;
+  --blue-dark: #171717;
+  --border: #d4d4d4;
+  --muted: #686868;
 }
 
 * { box-sizing: border-box; }
@@ -39,7 +39,7 @@ a:hover { color: var(--blue-dark); text-decoration: underline; }
 .site-nav { display: flex; align-items: center; gap: 23px; }
 .site-nav a {
   padding: 22px 0 20px;
-  color: #59636b;
+  color: #555555;
   font-size: 13px;
   border-bottom: 2px solid transparent;
 }
@@ -62,7 +62,7 @@ main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
   justify-content: center;
   gap: 13px;
   margin: 0 auto 13px;
-  color: #303940;
+  color: #202020;
   font-size: 39px;
   line-height: 1;
   font-weight: 700;
@@ -77,7 +77,7 @@ main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 .brand-description {
   max-width: 670px;
   margin: 0 auto 27px;
-  color: #65717a;
+  color: #666666;
   font-size: 15px;
   line-height: 1.65;
 }
@@ -107,7 +107,7 @@ h1 {
 h2 {
   margin: 0 0 17px;
   padding-bottom: 9px;
-  color: #39434b;
+  color: #303030;
   border-bottom: 1px solid var(--border);
   font-size: 18px;
   font-weight: 400;
@@ -121,7 +121,7 @@ fieldset {
 legend {
   margin-bottom: 11px;
   padding: 0;
-  color: #454e55;
+  color: #3b3b3b;
   font-size: 14px;
   font-weight: 700;
 }
@@ -150,8 +150,8 @@ input[type="text"] {
   font-size: 13px;
 }
 input[type="text"]:focus {
-  border-color: #6b9fbd;
-  box-shadow: 0 0 0 2px #2b78a81a;
+  border-color: #777777;
+  box-shadow: 0 0 0 2px #00000012;
 }
 input[type="text"]::placeholder { color: #9aa2a8; }
 
@@ -194,7 +194,7 @@ input[type="checkbox"] {
   width: 14px;
   height: 14px;
   margin: 0;
-  accent-color: var(--blue);
+  accent-color: #333333;
 }
 .options-row { display: flex; flex-wrap: wrap; gap: 12px 22px; }
 .actions, .result-actions { display: flex; flex-wrap: wrap; gap: 9px; }
@@ -209,13 +209,13 @@ button {
   font-size: 13px;
   cursor: pointer;
 }
-button:hover { border-color: #9daeb9; background: #f0f3f5; }
+button:hover { border-color: #999999; background: #eeeeee; }
 button.primary {
-  border-color: var(--blue-dark);
+  border-color: #171717;
   color: #fff;
-  background: var(--blue);
+  background: #333333;
 }
-button.primary:hover { background: var(--blue-dark); }
+button.primary:hover { background: #171717; }
 button:disabled { opacity: .5; cursor: default; }
 
 .result-description {
