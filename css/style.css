@@ -4,10 +4,10 @@
   background: #fdfdfd;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --blue: #333333;
-  --blue-dark: #171717;
-  --border: #d4d4d4;
-  --muted: #686868;
+  --ink: #101010;
+  --ink-soft: #3b3b3b;
+  --border: #d0d0d0;
+  --muted: #707070;
 }
 
 * { box-sizing: border-box; }
@@ -20,8 +20,8 @@ body {
   font-size: 14px;
   line-height: 1.55;
 }
-a { color: var(--blue); text-decoration: none; }
-a:hover { color: var(--blue-dark); text-decoration: underline; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); text-decoration: underline; }
 
 .site-header {
   background: #fff;
@@ -44,17 +44,30 @@ a:hover { color: var(--blue-dark); text-decoration: underline; }
   border-bottom: 2px solid transparent;
 }
 .site-nav a:hover, .site-nav a.active {
-  color: var(--blue-dark);
-  border-bottom-color: var(--blue);
+  color: var(--ink);
+  border-bottom-color: var(--ink-soft);
   text-decoration: none;
 }
 
 main { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
 .intro {
-  max-width: 760px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  align-items: center;
+  gap: 34px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 45px 0 34px;
-  text-align: center;
+}
+.intro-copy { min-width: 0; text-align: center; }
+.intro-art {
+  display: block;
+  width: 190px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  filter: grayscale(1);
 }
 .hero-brand {
   display: flex;
@@ -189,7 +202,7 @@ input[type="text"]::placeholder { color: #9aa2a8; }
   font-size: 12px;
   cursor: pointer;
 }
-#extension-groups > label { color: var(--blue-dark); font-size: 12px; }
+#extension-groups > label { color: var(--ink); font-size: 12px; }
 input[type="checkbox"] {
   width: 14px;
   height: 14px;
@@ -235,7 +248,7 @@ button:disabled { opacity: .5; cursor: default; }
   font: 12px/1.6 Consolas, "Liberation Mono", monospace;
 }
 .result-actions { margin-top: 10px; }
-#status { min-height: 18px; margin: 7px 0 0; color: var(--blue-dark); font-size: 12px; }
+#status { min-height: 18px; margin: 7px 0 0; color: var(--ink); font-size: 12px; }
 .note {
   margin: 25px 0 0;
   padding-top: 13px;
@@ -266,7 +279,8 @@ button:disabled { opacity: .5; cursor: default; }
   .header-inner { justify-content: center; min-height: 48px; }
   .site-nav { width: 100%; justify-content: center; gap: 18px; overflow-x: auto; }
   .site-nav a { padding: 10px 0 9px; white-space: nowrap; }
-  .intro { padding: 31px 0 24px; }
+  .intro { grid-template-columns: 1fr; gap: 18px; padding: 31px 0 24px; }
+  .intro-art { width: min(150px, 45vw); margin: 0 auto; }
   .hero-brand { font-size: 32px; gap: 9px; }
   .hero-brand .brand-icon { width: 42px; height: 42px; flex-basis: 42px; }
   .brand-description { font-size: 14px; }
