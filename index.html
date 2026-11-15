@@ -24,6 +24,11 @@
   <script src="./js/app.js" defer></script>
 </head>
 <body>
+  <div class="splash-screen" id="splash-screen" role="status" aria-label="METAINTZ">
+    <img class="splash-image" src="./apresenta.jpeg" alt="" fetchpriority="high">
+    <span class="splash-name">METAINTZ</span>
+  </div>
+
   <header class="site-header">
     <div class="header-inner">
       
@@ -206,5 +211,17 @@
     })();
   </script>
 
+  <script>
+    (() => {
+      const splash = document.getElementById("splash-screen");
+      if (!splash) return;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.setTimeout(() => {
+        splash.classList.add("is-leaving");
+        splash.addEventListener("transitionend", () => splash.remove(), { once: true });
+        window.setTimeout(() => splash.remove(), 900);
+      }, reducedMotion ? 250 : 1900);
+    })();
+  </script>
 </body>
 </html>
