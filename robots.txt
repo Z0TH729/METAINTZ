@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://z0th729.github.io/METAINTZ/sitemap.xml
