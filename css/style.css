@@ -411,3 +411,55 @@ button.primary:hover { background: #ffffff; }
 @media (prefers-reduced-motion: reduce) {
   html, body { transition: none; }
 }
+
+
+/* Tela de inicialização do METAINTZ */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .65s ease, visibility .65s ease;
+}
+.splash-image {
+  display: block;
+  width: min(148px, 38vw);
+  height: min(148px, 38vw);
+  object-fit: contain;
+  filter: grayscale(1);
+  animation: splash-image-in .7s ease both;
+}
+.splash-name {
+  color: #f2f2f2;
+  font-family: "Noto Sans", "Liberation Sans", Arial, sans-serif;
+  font-size: clamp(27px, 6vw, 39px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-indent: .18em;
+  animation: splash-name-in .7s .12s ease both;
+}
+.splash-screen.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+@keyframes splash-image-in {
+  from { opacity: 0; transform: translateY(9px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes splash-name-in {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash-image, .splash-name { animation: none; }
+  .splash-screen { transition: none; }
+}
